@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIe-iN-20t">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--欢迎-->
+        <scene sceneID="go2-nM-ZRP">
+            <objects>
+                <viewController storyboardIdentifier="welID" title="欢迎" id="nIe-iN-20t" customClass="LRDQwelViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lhz-Jb-cB3"/>
+                        <viewControllerLayoutGuide type="bottom" id="gY1-Li-kLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eIP-8b-yFR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-7W-evF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gY1-Li-kLS" firstAttribute="top" secondItem="rWy-7W-evF" secondAttribute="bottom" id="8FA-CP-cDP"/>
+                            <constraint firstItem="rWy-7W-evF" firstAttribute="leading" secondItem="eIP-8b-yFR" secondAttribute="leadingMargin" constant="-16" id="AQN-lV-ve6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rWy-7W-evF" secondAttribute="trailing" constant="-16" id="fj7-Wg-rqP"/>
+                            <constraint firstItem="rWy-7W-evF" firstAttribute="top" secondItem="eIP-8b-yFR" secondAttribute="topMargin" id="hP5-YD-DAL"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="backgroundimage" destination="rWy-7W-evF" id="xrc-xg-amn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9q-eF-7g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-93.5" y="81.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="0" width="720" height="1280"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

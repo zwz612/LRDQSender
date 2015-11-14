@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Me导航控制器-->
+        <scene sceneID="YnW-sM-Hw7">
+            <objects>
+                <navigationController storyboardIdentifier="MeNav" title="Me导航控制器" id="e1Z-88-Efk" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UvP-Ur-mmr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EZP-bu-rMS" kind="relationship" relationship="rootViewController" id="Boi-FD-jDx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPJ-RN-1R8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408.5" y="-1.5"/>
+        </scene>
+        <!--Me控制器-->
+        <scene sceneID="Sw2-vb-5xv">
+            <objects>
+                <viewController storyboardIdentifier="MeID" title="Me控制器" id="EZP-bu-rMS" customClass="LRDQMeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e7a-EY-jAP"/>
+                        <viewControllerLayoutGuide type="bottom" id="QF4-EP-9di"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZSa-hS-NnE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="um0-oe-P1u"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="Xgt-df-HdG" kind="show" identifier="toWhere" id="Fm0-6g-vI1"/>
+                        <segue destination="IgU-Pv-PPq" kind="show" identifier="toSoft" id="1U2-9P-aWM"/>
+                        <segue destination="JRa-FQ-kYr" kind="show" identifier="toMymessage" id="qyn-Ib-VYg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSX-tM-rB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.5" y="-1.5"/>
+        </scene>
+        <!--订单信息-->
+        <scene sceneID="O6X-DB-fKZ">
+            <objects>
+                <viewController title="订单信息" id="JRa-FQ-kYr" customClass="LRDQMymessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E82-uu-X1Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="n5H-vN-S27"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0lE-vE-pDa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdO-cV-CXX">
+                                <rect key="frame" x="7" y="20" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agT-91-F3o">
+                                <rect key="frame" x="86" y="72" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="J0I-wt-0bo"/>
+                                    <constraint firstAttribute="width" constant="100" id="ukS-oM-t5e"/>
+                                </constraints>
+                                <state key="normal" title="发的订单">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.95686274510000002" green="0.84313725490000002" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Mysendbtn:" destination="JRa-FQ-kYr" eventType="touchUpInside" id="gyt-3l-t4G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atw-4g-QfV">
+                                <rect key="frame" x="189" y="72" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.23529413339999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="DNA-m0-XhF"/>
+                                    <constraint firstAttribute="height" constant="30" id="dWc-GP-8Kh"/>
+                                </constraints>
+                                <state key="normal" title="抢的订单">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Mycatchbtn:" destination="JRa-FQ-kYr" eventType="touchUpInside" id="hU8-La-CS8"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JcJ-8O-tfP">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JRa-FQ-kYr" id="orU-x8-9v6"/>
+                                    <outlet property="delegate" destination="JRa-FQ-kYr" id="54a-vW-0Hl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="atw-4g-QfV" firstAttribute="leading" secondItem="agT-91-F3o" secondAttribute="trailing" constant="3" id="9hG-df-0M9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JcJ-8O-tfP" secondAttribute="trailing" constant="-16" id="9pS-aH-zf8"/>
+                            <constraint firstAttribute="centerX" secondItem="agT-91-F3o" secondAttribute="centerX" constant="51" id="Axv-1I-Vd4"/>
+                            <constraint firstItem="agT-91-F3o" firstAttribute="top" secondItem="E82-uu-X1Y" secondAttribute="bottom" constant="8" id="GqH-pJ-zvR"/>
+                            <constraint firstItem="JcJ-8O-tfP" firstAttribute="top" secondItem="atw-4g-QfV" secondAttribute="bottom" constant="8" id="W91-uJ-yjL"/>
+                            <constraint firstItem="JcJ-8O-tfP" firstAttribute="leading" secondItem="0lE-vE-pDa" secondAttribute="leadingMargin" constant="-16" id="ZgD-kT-3o9"/>
+                            <constraint firstItem="n5H-vN-S27" firstAttribute="top" secondItem="JcJ-8O-tfP" secondAttribute="bottom" id="hz1-1O-vT4"/>
+                            <constraint firstItem="atw-4g-QfV" firstAttribute="top" secondItem="E82-uu-X1Y" secondAttribute="bottom" constant="8" id="mnP-n6-RTw"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="MycatchList" destination="atw-4g-QfV" id="s3S-yx-Iua"/>
+                        <outlet property="MysendList" destination="agT-91-F3o" id="efA-tq-3oJ"/>
+                        <outlet property="tableView" destination="JcJ-8O-tfP" id="yKA-x2-HRp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="htL-ot-0Td" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.5" y="816.5"/>
+        </scene>
+        <!--关于软件-->
+        <scene sceneID="glk-Bk-2Tp">
+            <objects>
+                <viewController storyboardIdentifier="softID" title="关于软件" id="IgU-Pv-PPq" customClass="LRDQAboutSoftViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OwY-oV-6qk"/>
+                        <viewControllerLayoutGuide type="bottom" id="jC8-mn-7TS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v0k-6e-gQL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="软件简介" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Od-MX-LmZ">
+                                <rect key="frame" x="44" y="131" width="232" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="软件为喜欢购物的朋友量身定做，一点小费就可以足不出户拿到心爱的宝贝，何乐而不为呢&gt;_&lt;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4c-Y7-1sd">
+                                <rect key="frame" x="83" y="189" width="154" height="102"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Od-MX-LmZ" firstAttribute="top" secondItem="OwY-oV-6qk" secondAttribute="bottom" constant="67" id="PSP-73-po7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Od-MX-LmZ" secondAttribute="trailing" constant="28" id="RZR-1V-axf"/>
+                            <constraint firstItem="5Od-MX-LmZ" firstAttribute="leading" secondItem="v0k-6e-gQL" secondAttribute="leadingMargin" constant="28" id="S3e-fO-NTk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i4c-Y7-1sd" secondAttribute="trailing" constant="67" id="a5L-ia-Fiy"/>
+                            <constraint firstItem="i4c-Y7-1sd" firstAttribute="leading" secondItem="v0k-6e-gQL" secondAttribute="leadingMargin" constant="67" id="f3c-1R-UDT"/>
+                            <constraint firstItem="i4c-Y7-1sd" firstAttribute="top" secondItem="5Od-MX-LmZ" secondAttribute="bottom" constant="37" id="zYi-j3-Rf2"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNu-jX-Ban" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344.5" y="816.5"/>
+        </scene>
+        <!--快递在哪-->
+        <scene sceneID="Kwm-nL-kJp">
+            <objects>
+                <viewController storyboardIdentifier="whereID" title="快递在哪" id="Xgt-df-HdG" customClass="LRDQWhereViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="04q-qA-pfq"/>
+                        <viewControllerLayoutGuide type="bottom" id="IjI-hU-rbh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uyT-QZ-Fd4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thB-4w-arD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xgt-df-HdG" id="pXh-jK-aNb"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="thB-4w-arD" firstAttribute="leading" secondItem="uyT-QZ-Fd4" secondAttribute="leadingMargin" constant="-16" id="AZK-qC-wEh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="thB-4w-arD" secondAttribute="trailing" constant="-16" id="ITl-1K-uWX"/>
+                            <constraint firstItem="thB-4w-arD" firstAttribute="top" secondItem="uyT-QZ-Fd4" secondAttribute="topMargin" id="QSt-Ru-Q9t"/>
+                            <constraint firstItem="IjI-hU-rbh" firstAttribute="top" secondItem="thB-4w-arD" secondAttribute="bottom" id="UZZ-4v-teh"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="thB-4w-arD" id="5mE-NU-t5H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UDK-lJ-Y5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344.5" y="-1.5"/>
+        </scene>
+    </scenes>
+</document>

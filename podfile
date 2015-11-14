@@ -1,0 +1,2 @@
+pod 'RDVTabBarController', '~> 1.1.9'
+pod 'FlatUIKit', '~> 1.6.2'

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>018DECE0-76B8-490F-BF95-C671C26A9C1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LRDQSender</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3EB41240B0E05F3A43099BCBC9E4D1944FCFCCDE</key>
+		<string>ssh://github.com/Grouper/FlatUIKit.git</string>
+		<key>846B59F7780A57B81C6AE1DF5B2786FF520FFCA4</key>
+		<string>ssh://github.com/zwz612/LRDQSender.git</string>
+		<key>D46B1BFBBC83E1AED468E7C9F46304A82215D753</key>
+		<string>ssh://github.com/zwz612/LRDQSender.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LRDQSender.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3EB41240B0E05F3A43099BCBC9E4D1944FCFCCDE</key>
+		<string>../../LRDQSender%E6%9C%80%E6%96%B0%E7%89%88/FlatUIKit</string>
+		<key>846B59F7780A57B81C6AE1DF5B2786FF520FFCA4</key>
+		<string>..</string>
+		<key>D46B1BFBBC83E1AED468E7C9F46304A82215D753</key>
+		<string>../../LRDQSender</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/zwz612/LRDQSender.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>846B59F7780A57B81C6AE1DF5B2786FF520FFCA4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3EB41240B0E05F3A43099BCBC9E4D1944FCFCCDE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FlatUIKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D46B1BFBBC83E1AED468E7C9F46304A82215D753</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LRDQSender</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>846B59F7780A57B81C6AE1DF5B2786FF520FFCA4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LRDQSender2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

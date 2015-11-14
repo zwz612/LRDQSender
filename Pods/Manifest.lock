@@ -1,0 +1,13 @@
+PODS:
+  - FlatUIKit (1.6.2)
+  - RDVTabBarController (1.1.9)
+
+DEPENDENCIES:
+  - FlatUIKit (~> 1.6.2)
+  - RDVTabBarController (~> 1.1.9)
+
+SPEC CHECKSUMS:
+  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+
+COCOAPODS: 0.38.2
