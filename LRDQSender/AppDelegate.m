@@ -60,11 +60,15 @@
     {
         if ([oldVersion isEqualToString:newVersion])
         {
+            
+            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQwelStoryboard" bundle:nil];
+            LRDQwelViewController * welVC = [storyBoard instantiateViewControllerWithIdentifier:@"welID"];
+            self.window.rootViewController = welVC;
             //从登录注册页启动
-            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQLogonAndSignUpStoryBoard" bundle:nil];
-            LRDQLogonAndSignUpViewController * signUpOrIn = [storyBoard instantiateViewControllerWithIdentifier:@"LogonAndSIgnUPID"];
-            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:signUpOrIn];
-            self.window.rootViewController = nav;
+//            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQLogonAndSignUpStoryBoard" bundle:nil];
+//            LRDQLogonAndSignUpViewController * signUpOrIn = [storyBoard instantiateViewControllerWithIdentifier:@"LogonAndSIgnUPID"];
+//            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:signUpOrIn];
+//            self.window.rootViewController = nav;
         }
         else
         {

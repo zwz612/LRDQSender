@@ -67,12 +67,6 @@
     _tel.text=msgFrameModel.msgModel.tel;
     _desc.text=msgFrameModel.msgModel.desc;
     
-    
-
-   
-   
-   
-   
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

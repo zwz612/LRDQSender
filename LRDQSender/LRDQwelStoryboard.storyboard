@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="720" height="1280"/>
+        <image name="0" width="320" height="480"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

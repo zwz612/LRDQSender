@@ -44,7 +44,7 @@
     [_backgroundimage setImage:[UIImage imageNamed:@"33"]];
     _backgroundimage.frame=[UIScreen mainScreen].bounds;
     scrollView.center=CGPointMake([UIScreen mainScreen].bounds.size.width*0.5, [UIScreen mainScreen].bounds.size.height*0.5-70.f);
-    scrollView.bounds=CGRectMake(0, 0,(kscrollXRatio*[UIScreen mainScreen].bounds.size.width) ,(kscrollYRatio*[UIScreen mainScreen].bounds.size.height));
+    scrollView.bounds=CGRectMake(0, 0,(([UIScreen mainScreen].bounds.size.width)*kscrollXRatio) ,(kscrollYRatio*[UIScreen mainScreen].bounds.size.height));
     scrollView.layer.cornerRadius = 25.f;
     [self.view addSubview:scrollView];
     [self.view bringSubviewToFront:scrollView];
@@ -67,7 +67,7 @@
         UIImageView * imageView = [[UIImageView alloc]init];
         NSString * imageName = [NSString stringWithFormat:@"%i0.jpg",i];
         [imageView setImage:[UIImage imageNamed:imageName]];
-        imageView.frame = CGRectMake(i*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+        imageView.frame = CGRectMake(i*_scrollView.frame.size.width, 0, _scrollView.bounds.size.width, _scrollView.frame.size.height);
         if (i==4) {
             
             [self addStartButton:imageView];
@@ -80,8 +80,12 @@
     _scrollView.bounces = NO;
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSUInteger number = (NSUInteger)scrollView.contentOffset.x/scrollView.frame.size.width;
-    _pageControl.currentPage = number+1;
+    NSUInteger number = (int)_scrollView.contentOffset.x/(int)_scrollView.bounds.size.width;
+    NSLog(@"%f",_scrollView.bounds.size.width);
+    NSLog(@"%f",_scrollView.contentOffset.x);
+    NSLog(@"%lu",(unsigned long)number);
+    _pageControl.currentPage = number;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

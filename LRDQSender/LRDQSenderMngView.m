@@ -14,8 +14,9 @@
 +(instancetype)senderMngView{
     LRDQSenderMngView * senderMngView=[[LRDQSenderMngView alloc]init];
     senderMngView.bounds=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width*0.7,5*Margin+3*30.f+44.f);
+    senderMngView.layer.cornerRadius=15.f;
     senderMngView.center=CGPointMake([UIScreen mainScreen].bounds.size.width*0.5,[UIScreen mainScreen].bounds.size.height/3);
-    senderMngView.backgroundColor=[UIColor lightGrayColor];
+    senderMngView.backgroundColor=[UIColor colorWithRed:103.f/255.f green:210.f/255.f blue:243.f/255.f alpha:1];
     return senderMngView;
 }
 -(instancetype)init
