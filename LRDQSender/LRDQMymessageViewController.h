@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LRDQMymessageViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "LRDQMymessageTableViewCell.h"
+@interface LRDQMymessageViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,LRDQMymessageTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)Mysendbtn:(UIButton *)sender;

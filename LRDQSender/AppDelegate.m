@@ -31,14 +31,6 @@
         //网络
         [Parse setApplicationId:@"tf46oRYGjQa8GLz9DueRY4qmcWBzu6PPzrBZUQEl"
                       clientKey:@"a2xShS8R4PnjJNOjHlMSpUrigBg99ZGJc3qkBJOq"];
-        //1其中第一部分代码创建了一个对象,并指定其类名为Player。
-        PFObject*player =[PFObject objectWithClassName:@"Player"];
-        
-        [player setObject:@"John"forKey:@"Name"];
-        //3 第三部分代码用于保存该对象。此时将会以同步方式将对象发送到服务器。
-        [player save];
-        
-        
     });
     
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -60,15 +52,11 @@
     {
         if ([oldVersion isEqualToString:newVersion])
         {
-            
-            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQwelStoryboard" bundle:nil];
-            LRDQwelViewController * welVC = [storyBoard instantiateViewControllerWithIdentifier:@"welID"];
-            self.window.rootViewController = welVC;
             //从登录注册页启动
-//            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQLogonAndSignUpStoryBoard" bundle:nil];
-//            LRDQLogonAndSignUpViewController * signUpOrIn = [storyBoard instantiateViewControllerWithIdentifier:@"LogonAndSIgnUPID"];
-//            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:signUpOrIn];
-//            self.window.rootViewController = nav;
+            UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"LRDQLogonStoryBoard" bundle:nil];
+            LRDQLogonAndSignUpViewController * signUpOrIn = [storyBoard instantiateViewControllerWithIdentifier:@"LogonID"];
+            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:signUpOrIn];
+            self.window.rootViewController = nav;
         }
         else
         {

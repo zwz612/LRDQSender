@@ -43,9 +43,15 @@
     
     UIButton * contact=[[UIButton alloc]init];
     _contact=contact;
-    [contact setImage:[UIImage imageNamed:@"communication"] forState:UIControlStateNormal];
+    [contact setImage:[UIImage imageNamed:@"telphone"] forState:UIControlStateNormal];
     [contact addTarget:self action:@selector(connectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:contact];
+    
+    UILabel * distance = [[UILabel alloc]init];//1119
+    _distance = distance;
+    [self addSubview:distance];
+    
+    
 }
 -(void)getMailButtonClicked:(UIButton*)sender{
     if ([_delegate respondsToSelector:@selector(homeCell:getMailClicked:)]) {
@@ -68,6 +74,7 @@
     _getMail.frame=_msgFrameModel.getMarlFrame;
     _contact.frame=_msgFrameModel.contactFrame;
     
+    _distance.frame = _msgFrameModel.distanceFrame;//1119
 }
 -(void)setMsgFrameModel:(LRDQHomeMsgFrameModel *)msgFrameModel
 {
@@ -83,8 +90,9 @@
     }else if ([msgModel.get isEqualToString:@"0"]){
         [_getMail setImage:[UIImage imageNamed:@"yiqiang"] forState:UIControlStateNormal];
         _getMail.enabled=NO;
-
-    }    
+    }
+    _distance.text = msgModel.distance;
+    [_distance setTextColor:[UIColor redColor]];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

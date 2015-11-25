@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *telNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *againPassword;
+@property (weak, nonatomic) IBOutlet UIButton *signUp;
 
 @end
 
@@ -85,6 +86,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"注册界面";
+    _signUp.layer.cornerRadius=10.f;
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:103.f/255.f green:210.f/255.f blue:243.f/255.f alpha:1];
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

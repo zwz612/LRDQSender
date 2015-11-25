@@ -9,7 +9,8 @@
 #import "LRDQMymessageTableViewCell.h"
 #include "CoreDataMngTool.h"
 #import "LRDQHomeMsgModel.h"
-
+#import "NSString+MoreExtentions.h"
+#define telFont [UIFont systemFontOfSize:18.f]
 @implementation LRDQMymessageTableViewCell
 +(instancetype)LRDQMymessageTableViewCellWithTableView:(UITableView*)tableView{
     static NSString* ID = @"homeListcell";
@@ -18,16 +19,17 @@
     if (cell == nil) {
         cell = [[LRDQMymessageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-   
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-  
-      
-
     return cell;
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+//        UIButton*telnumber=[[UIButton alloc]init];
+//        _telnumber=telnumber;
+//        [self addSubview:telnumber];
+//        telnumber.titleLabel.textColor=[UIColor redColor];
+        
         UILabel* time = [[UILabel alloc]init];
         _time = time;
         [self addSubview:time];
@@ -49,8 +51,23 @@
         _desc=desc;
         desc.numberOfLines=0;
         [self addSubview:desc];
+        
+        UILabel*getUser=[[UILabel alloc]init];
+        _getUser=getUser;
+        [self addSubview:getUser];
+        UIButton * makeSure=[[UIButton alloc]init];
+        _makeSure=makeSure;
+        [makeSure addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:makeSure];
     }
     return self;
+}
+-(void)clicked:(UIButton*)sender{
+    if ([_delegate respondsToSelector:@selector(messageCell:makeSureClicked:)]) {
+        [_delegate messageCell:self makeSureClicked:sender];
+    }
+    
+    
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -58,6 +75,12 @@
     _address.frame=_msgFrameModel.addressFrame;
     _tel.frame=_msgFrameModel.telFrame;
     _desc.frame=_msgFrameModel.descFrame;
+    _telnumber.frame=_msgFrameModel.getMarlFrame;
+    
+    _getUser.frame=_msgFrameModel.getUserFrame;
+    _makeSure.frame=_msgFrameModel.contactFrame;
+
+    
 }
 -(void)setMsgFrameModel:(LRDQHomeMsgFrameModel *)msgFrameModel
 {
@@ -66,6 +89,15 @@
     _address.text=msgFrameModel.msgModel.address;
     _tel.text=msgFrameModel.msgModel.tel;
     _desc.text=msgFrameModel.msgModel.desc;
+    NSString*string=[NSString stringWithFormat:@"抢单的人:%@",msgFrameModel.msgModel.getUser];
+    _getUser.textColor=[UIColor redColor];
+    _getUser.text=string;
+    if ([msgFrameModel.msgModel.finish isEqualToString:@"0"]) {
+        [_makeSure setImage:[UIImage imageNamed:@"makeSure"] forState:UIControlStateNormal];
+    }
+    else if ([msgFrameModel.msgModel.finish isEqualToString:@"1"]){
+        [_makeSure setImage:[UIImage imageNamed:@"finish"] forState:UIControlStateNormal] ;
+    }
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

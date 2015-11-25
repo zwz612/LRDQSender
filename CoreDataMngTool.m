@@ -30,8 +30,10 @@ static CoreDataMngTool * tool;
     request.entity = desc;
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
-    request.sortDescriptors = [NSArray arrayWithObject:sort];
-    
+    NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"get" ascending:NO];
+
+    //request.sortDescriptors = [NSArray arrayWithObject:sort];
+    request.sortDescriptors = [NSArray arrayWithObjects:sort1,sort,nil];
     NSError *error = nil;
     NSArray *objs = [delegate.managedObjectContext executeFetchRequest:request error:&error];
     if (error) {
@@ -81,12 +83,11 @@ static CoreDataMngTool * tool;
     
     NSEntityDescription *desc = [NSEntityDescription entityForName:@"LRDQHomeMsgModel" inManagedObjectContext:delegate.managedObjectContext];
     request.entity = desc;
-    
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
     request.sortDescriptors = [NSArray arrayWithObject:sort];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"get == '0'"];
-    request.predicate=predicate;
+    NSString *tempStr = [CoreDataMngTool shareCoreDatamngTool].curTel;
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat: @"getUser like %@",tempStr];
+    request.predicate = predicate1;
     NSError *error = nil;
     NSArray *objs = [delegate.managedObjectContext executeFetchRequest:request error:&error];
     if (error) {
@@ -96,9 +97,7 @@ static CoreDataMngTool * tool;
 }
 
 +(NSArray*)searchLoadList{//1109
-    
     AppDelegate* delegate = [UIApplication sharedApplication].delegate;
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *desc = [NSEntityDescription entityForName:@"LRDQHomeMsgModel" inManagedObjectContext:delegate.managedObjectContext];
@@ -130,7 +129,13 @@ static CoreDataMngTool * tool;
     }
     return _allMsg;
 }
-
+-(NSArray *)catchMsg{
+    _catchMsg = nil;
+    if (_catchMsg ==nil) {
+        _catchMsg = [CoreDataMngTool mycatchList];
+    }
+    return _catchMsg;
+}
 
 
 @end

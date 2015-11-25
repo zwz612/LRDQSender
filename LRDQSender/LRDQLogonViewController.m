@@ -16,7 +16,9 @@
 #import "FlatUIKit.h"
 #import "CoreDataMngTool.h"
 #import "PFUserTool.h"
+#import "MBProgressHUD+MoreExtension.h"
 @interface LRDQLogonViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *logon;
 @property (weak, nonatomic) IBOutlet UILabel *tel;
 @property (weak, nonatomic) IBOutlet UILabel *password;
 @property (weak, nonatomic) IBOutlet UITextField *telnumber;
@@ -26,14 +28,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *remember;
 @property (weak, nonatomic) FUISwitch *onSwitch;
 
+@property(strong,nonatomic)NSMutableArray * lists;
+
 @end
 
 @implementation LRDQLogonViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     NSString* docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    _logon.layer.cornerRadius=10.f;
     NSString* filepath = [docPath stringByAppendingPathComponent:@"userinfo.plist"];
     NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:filepath];
     _telnumber.text = [dict objectForKey:@"tel"];
@@ -53,7 +58,7 @@
     onSwitch.offBackgroundColor = [UIColor silverColor];
     onSwitch.offLabel.font = [UIFont boldFlatFontOfSize:14];
     onSwitch.onLabel.font = [UIFont boldFlatFontOfSize:14];
-    onSwitch.frame=CGRectMake(_remember.right+10.f, _remember.top-5.f, 60.f, 30.f);
+    onSwitch.frame=CGRectMake(_remember.right+10.f, _remember.top, 60.f, 30.f);
     [self.view addSubview:onSwitch];
     [onSwitch addTarget:self action:@selector(switchClick:) forControlEvents:UIControlEventTouchDown];
     NSNumber* passOn = [[NSUserDefaults standardUserDefaults] objectForKey:@"passOnKey"];
@@ -81,9 +86,10 @@
     
 }
 - (IBAction)logon:(UIButton *)sender {
-   
-    
-    
+    MBProgressHUD*hud=[MBProgressHUD showHUDAddedTo:self.view LabelText:@"拼命加载中。。。" animated:YES];
+    hud.animationType=MBProgressHUDAnimationZoomIn;
+
+        
     dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(asynQueue, ^{
          LRDQTBController*tabarVC=[LRDQTBController TBController];
@@ -116,15 +122,20 @@
             if (user) {
                 /*-------------------------------------------------------------修改的部分----------------------------------------------------------*/
                 [UIApplication sharedApplication].keyWindow.rootViewController = tabarVC.TBController;
+                
+
                 [self dismissViewControllerAnimated:YES completion:^{
                     
                 }];
                 /*-------------------------------------------------------------修改的部分----------------------------------------------------------*/
                 
+                
+                
             }else{
                 NSString * errorString = [[ error userInfo]objectForKey:@"error"];
                 UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"error" message:errorString delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
                 [alertView show];
+                hud.hidden = YES;
             }
         }];
 

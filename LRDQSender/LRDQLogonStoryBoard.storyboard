@@ -122,6 +122,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="logon" destination="zZe-ei-Tcq" id="FBm-Zz-Mwp"/>
                         <outlet property="password" destination="HMK-0f-NDt" id="dWx-W8-XEo"/>
                         <outlet property="passwordCount" destination="cv5-Ff-ey9" id="nrA-WV-Aio"/>
                         <outlet property="remember" destination="Pcp-Mf-y70" id="e73-Ky-eAq"/>

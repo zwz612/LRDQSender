@@ -81,9 +81,6 @@
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSUInteger number = (int)_scrollView.contentOffset.x/(int)_scrollView.bounds.size.width;
-    NSLog(@"%f",_scrollView.bounds.size.width);
-    NSLog(@"%f",_scrollView.contentOffset.x);
-    NSLog(@"%lu",(unsigned long)number);
     _pageControl.currentPage = number;
     
 }

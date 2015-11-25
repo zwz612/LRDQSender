@@ -52,9 +52,7 @@
     LRDQLogonViewController*logonVC=[storyboard instantiateViewControllerWithIdentifier:@"LogonID"];
     ;
     [self.navigationController pushViewController:logonVC animated:YES];
-//    [self.navigationController presentViewController:logonVC animated:NO completion:^{
-//        
-//    }];
+
 }
 
 - (IBAction)signUp:(UIButton *)sender {

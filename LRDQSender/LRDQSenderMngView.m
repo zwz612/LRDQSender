@@ -100,7 +100,4 @@
     [self removeFromSuperview];
 }
 
--(void)setMsgModel:(LRDQHomeMsgModel *)msgModel{//1109没用
-    msgModel.isload = NO;
-}
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "PFUserTool.h"
-
 static PFUserTool*tool;
 @implementation PFUserTool
 +(instancetype)sharedUser{
@@ -17,8 +16,8 @@ static PFUserTool*tool;
         tool.userName = nil;
     });
     return tool;
-    
-    
-    
+ 
 }
+
+
 @end

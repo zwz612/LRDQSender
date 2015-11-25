@@ -10,6 +10,7 @@
 #import "LRDQHomeMsgFrameModel.h"
 #import "UIView+Extension.h"
 #import "NSString+MoreExtentions.h"
+
 #define kTimeFont [UIFont systemFontOfSize:14.f]
 @class LRDQHomeTableViewCell;
 @protocol LRDQHomeTableViewCellDelegate <NSObject>
@@ -27,10 +28,11 @@
 @property (weak ,nonatomic)UILabel * address;
 @property (weak,nonatomic)UILabel * tel;
 @property (weak,nonatomic)UILabel * desc;
+
+@property (weak,nonatomic) UILabel * distance;//1119
+
 @property(weak,nonatomic)id<LRDQHomeTableViewCellDelegate>delegate;
-
 @property (strong,nonatomic)LRDQHomeMsgFrameModel * msgFrameModel;
-
 
 
 

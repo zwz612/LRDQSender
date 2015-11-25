@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LRDQSenderMngView.h"
 #import "LRDQHomeTableViewCell.h"
-@interface LRDQTableViewController : UITableViewController<LRDQSenderMngViewDelegate,LRDQHomeTableViewCellDelegate>
+#import <CoreLocation/CoreLocation.h>
+@interface LRDQTableViewController : UITableViewController<LRDQSenderMngViewDelegate,LRDQHomeTableViewCellDelegate,CLLocationManagerDelegate>
 @end

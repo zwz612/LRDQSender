@@ -15,6 +15,8 @@
 #import "RDVTabBarController.h"
 #import <Parse/Parse.h>
 
+#import "LRDQGetWebList.h"
+
 
 typedef enum{
     eMysendLister = 0,
@@ -36,10 +38,10 @@ typedef enum{
         switch (_eMymessageSel) {
             case eMysendLister:{
                _cellContents=[CoreDataMngTool shareCoreDatamngTool].msgList;//1109
+            
             }break;
             case eMycatchLister:{
-                _cellContents=[CoreDataMngTool mycatchList];
-                
+                _cellContents=[CoreDataMngTool shareCoreDatamngTool].catchMsg;
             }break;
             default:
                 break;
@@ -92,6 +94,20 @@ typedef enum{
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LRDQMymessageTableViewCell * cell=[LRDQMymessageTableViewCell LRDQMymessageTableViewCellWithTableView:tableView];
     LRDQHomeMsgFrameModel*frameModel=self.lists[indexPath.row];
+    cell.msgFrameModel = frameModel;
+    switch (_eMymessageSel) {
+        case eMysendLister:
+            cell.makeSure.hidden =NO;
+            cell.getUser.hidden  = NO;
+            break;
+        case eMycatchLister:
+            cell.makeSure.hidden =YES;
+            cell.getUser.hidden= YES;
+            break;
+        default:
+            break;
+    }
+    cell.delegate=self;
     cell.msgFrameModel=frameModel;
     
     return  cell;
@@ -118,42 +134,21 @@ typedef enum{
     _lists=nil;
     [self.tableView reloadData];
 }
-
-
-///*-------1111+＋＋＋＋＋删除*/
-//
-//0922.10 订单删除
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (_eMymessageSel ==eMysendLister ) {
-        return YES;//可以编辑
-    }else{
-        return NO;
-    }
-    
-}
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    LRDQHomeMsgFrameModel * msgframeModel = self.lists[indexPath.row];
-
-    [CoreDataMngTool deleteMsg:msgframeModel.msgModel];
-    _lists = nil;
-    
+-(void)messageCell:(LRDQMymessageTableViewCell *)messageCell makeSureClicked:(UIButton *)makeSure{
+    messageCell.msgFrameModel.msgModel.finish = @"1";
     PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
-       [query whereKey:@"loginTel" equalTo:[CoreDataMngTool shareCoreDatamngTool].curTel];
-//    [query whereKey:@"tel" equalTo:msgframeModel.msgModel.tel];
-//    [query whereKey:@"desc" equalTo:msgframeModel.msgModel.desc];
+    [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
+    [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
     [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
         if (!error) {
             for (PFObject * wallObject in [[NSArray alloc]initWithArray:objects]) {
-//                dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//                dispatch_async(asynQueue, ^{
-//
-//                    [wallObject removeObjectForKey:@"LRDQLists"];
-//                    //[wallObject deleteInBackground];
-//                    //[wallObject saveInBackground];
-//                    [wallObject fetch];
-//                });
-                [wallObject delete];
-                
+                dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                dispatch_async(asynQueue, ^{
+                    messageCell.msgFrameModel.msgModel.finish = @"1";
+                    [wallObject setObject:messageCell.msgFrameModel.msgModel.finish forKey:@"finish"];
+                    [wallObject saveInBackground];
+                    [wallObject fetch];
+                });
             }
             
         }else{
@@ -161,14 +156,7 @@ typedef enum{
             NSLog(@"error:%@",errorString);
         }
     }];
-    
-    
     [self.tableView reloadData];
-    
 }
-
-
-
-
 
 @end

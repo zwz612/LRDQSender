@@ -11,7 +11,7 @@
 
 @interface NSString (MoreExtentions)
 
-//能够返回字符串暂用的高度，需要输入文字摆放的size 以及文字的字体
+//能够返回字符串占用的高度，需要输入文字摆放的size 以及文字的字体
 -(CGFloat)heightForWidth:(CGFloat)width Font:(UIFont*)font;
 -(CGFloat)widthForWidth:(CGFloat)width Font:(UIFont*)font;
 -(BOOL)validatePhoneNumber;

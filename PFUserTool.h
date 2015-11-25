@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface PFUserTool : NSObject
 @property (copy,nonatomic) NSString * userName;
-
-
 +(instancetype)sharedUser;
 @end

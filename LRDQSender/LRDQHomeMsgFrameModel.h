@@ -11,7 +11,6 @@
 
 #import "LRDQHomeMsgModel.h"
 #import "NSString+MoreExtentions.h"
-
 #define kMargin 20.f
 #define textWidthRatio 200.f/375.f
 #define addressFont [UIFont systemFontOfSize:18.f]
@@ -25,6 +24,8 @@
 @property(assign ,nonatomic)CGRect descFrame;
 @property(assign ,nonatomic)CGRect getMarlFrame;
 @property(assign ,nonatomic)CGRect contactFrame;
+@property(assign,nonatomic)CGRect getUserFrame;
+@property(assign,nonatomic)CGRect distanceFrame;
 
 @property(strong,nonatomic)LRDQHomeMsgModel * msgModel;
 
@@ -33,5 +34,6 @@
 @property(assign,nonatomic)CGFloat cellHeight;
 
 +(instancetype)LRDQHomeMsgFrameModel:(LRDQHomeMsgModel*)msgModel;
+
 
 @end

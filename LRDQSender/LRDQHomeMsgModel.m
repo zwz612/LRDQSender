@@ -18,8 +18,13 @@
 @dynamic tel;
 @dynamic time;
 @dynamic selmsg;
-@dynamic isload;
 @dynamic loginTel;
+@dynamic getUser;
+@dynamic finish;
+@dynamic longitude;
+@dynamic latitude;
+//@dynamic distance;
+
 +(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict{
     
     AppDelegate*delegate=[UIApplication sharedApplication].delegate;
@@ -32,13 +37,14 @@
     model.time=[dict objectForKey:@"time"];
     model.selmsg = [dict objectForKey:@"selmsg"];
     model.loginTel = [dict objectForKey:@"loginTel"];
+    model.getUser = [dict objectForKey:@"getUser"];
+    model.finish=[dict objectForKey:@"finish"];
+    model.distance =[dict objectForKey:@"distance"];//1119
     
-//    if ([CoreDataMngTool shareCoreDatamngTool].selected) {
-//        model.get=@"";
-//    }else{
-//        
-//    }
-    model.isload = NO;//1109没用
+    model.latitude = [dict objectForKey:@"latitude"];
+    model.longitude = [dict objectForKey:@"longitude"];
+    
+    
     [delegate saveContext];
     
     return model;

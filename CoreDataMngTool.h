@@ -13,6 +13,9 @@
 @property (strong,nonatomic) NSArray * msgList;
 @property (copy,nonatomic) NSString * curTel;//1109
 @property (strong ,nonatomic)NSArray * allMsg;//1111
+@property (strong,nonatomic)NSArray * catchMsg;
+@property(copy,nonatomic)NSString*selectTel;
+@property(copy,nonatomic)NSString * distance;
 +(instancetype)shareCoreDatamngTool;
 
 //查询所有Person的方法
