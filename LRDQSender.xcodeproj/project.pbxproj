@@ -239,6 +239,7 @@
 		C7F32EBA1BA97CF200F0C36B /* LRDQLogonAndSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRDQLogonAndSignUpViewController.h; sourceTree = "<group>"; };
 		C7F32EBB1BA97CF200F0C36B /* LRDQLogonAndSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRDQLogonAndSignUpViewController.m; sourceTree = "<group>"; };
 		C7F32EBD1BA97D1800F0C36B /* LRDQLogonAndSignUpStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LRDQLogonAndSignUpStoryBoard.storyboard; sourceTree = "<group>"; };
+		C7F587C91C05B80900C508DD /* LRDQSender 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "LRDQSender 13.xcdatamodel"; sourceTree = "<group>"; };
 		C7F77E571BCBB67C00B5F042 /* LRDQTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRDQTBController.h; sourceTree = "<group>"; };
 		C7F77E581BCBB67C00B5F042 /* LRDQTBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRDQTBController.m; sourceTree = "<group>"; };
 		C7F77ED11BCBE42600B5F042 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -1180,6 +1181,7 @@
 		C79316511BA90E9E0078D9B5 /* LRDQSender.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C7F587C91C05B80900C508DD /* LRDQSender 13.xcdatamodel */,
 				C795A77B1C05519E004E7ED7 /* LRDQSender 12.xcdatamodel */,
 				C7F0389F1BFEBAE500B596D0 /* LRDQSender 11.xcdatamodel */,
 				C753B3341BFB26AA004B482B /* LRDQSender 10.xcdatamodel */,
@@ -1194,7 +1196,7 @@
 				C7BC79BD1BE7624300815A56 /* LRDQSender 2.xcdatamodel */,
 				C79316521BA90E9E0078D9B5 /* LRDQSender.xcdatamodel */,
 			);
-			currentVersion = C795A77B1C05519E004E7ED7 /* LRDQSender 12.xcdatamodel */;
+			currentVersion = C7F587C91C05B80900C508DD /* LRDQSender 13.xcdatamodel */;
 			path = LRDQSender.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

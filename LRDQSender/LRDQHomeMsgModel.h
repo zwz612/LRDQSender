@@ -24,4 +24,5 @@
 @property (nonatomic, retain) NSString * distance;//1119
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSString * latitude;
+@property (nonatomic, assign) BOOL btnclick;
 @end

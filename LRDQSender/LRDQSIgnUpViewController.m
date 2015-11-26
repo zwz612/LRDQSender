@@ -21,18 +21,23 @@
 #import "VersionSingletonTool.h"
 #import "PFUserTool.h"
 @interface LRDQSIgnUpViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *telNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pwdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *againLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *againPassword;
 @property (weak, nonatomic) IBOutlet UIButton *signUp;
+@property (weak, nonatomic) IBOutlet UIImageView *bg;
 
 @end
 
 @implementation LRDQSIgnUpViewController
 - (IBAction)signUp:(UIButton *)sender {
-    
-    
+
     dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(asynQueue, ^{
         //增加Tarbar
@@ -88,7 +93,23 @@
     self.title=@"注册界面";
     _signUp.layer.cornerRadius=10.f;
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:103.f/255.f green:210.f/255.f blue:243.f/255.f alpha:1];
+    [self layoutSubviews];
 }
+
+-(void)layoutSubviews
+{
+    _nameLabel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*(50.f/375.f), [UIScreen mainScreen].bounds.size.height*(110.f/667.f), 80.f, 30.f);
+    _nameTextField.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*(140.f/375.f), _nameLabel.top, 160.f, _nameLabel.height);
+    _telNumLabel.frame = CGRectMake(_nameLabel.left, [UIScreen mainScreen].bounds.size.height*(170.f/667.f), _nameLabel.width, _nameLabel.height);
+    _telNumTextField.frame = CGRectMake(_nameTextField.left, _telNumLabel.top, _nameTextField.width, _nameTextField.height);
+    _pwdLabel.frame = CGRectMake(_nameLabel.left, [UIScreen mainScreen].bounds.size.height*(230.f/667.f), _nameLabel.width, _nameLabel.height);
+    _passwordTextField.frame = CGRectMake(_nameTextField.left, _pwdLabel.top, _nameTextField.width, _nameTextField.height);
+    _againLabel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*(50.f/375.f), [UIScreen mainScreen].bounds.size.height*(290.f/667.f), 80.f, 30.f);
+    _againPassword.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*(140.f/375.f), [UIScreen mainScreen].bounds.size.height*(290.f/667.f), 160.f, 30.f);
+    _signUp.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*(260.f/375.f), [UIScreen mainScreen].bounds.size.height*(380.f/667.f), 44.f, 44.f);
+    _bg.frame = [UIScreen mainScreen].bounds;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [_nameTextField endEditing:YES];
     [_telNumTextField endEditing:YES];

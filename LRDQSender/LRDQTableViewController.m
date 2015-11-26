@@ -76,6 +76,7 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     [self loadNewData];
+    [self loadNewData];
     
 }
 -(void)loadNewData{

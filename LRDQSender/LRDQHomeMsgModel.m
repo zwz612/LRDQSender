@@ -23,6 +23,7 @@
 @dynamic finish;
 @dynamic longitude;
 @dynamic latitude;
+@dynamic btnclick;
 //@dynamic distance;
 
 +(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict{
@@ -43,7 +44,7 @@
     
     model.latitude = [dict objectForKey:@"latitude"];
     model.longitude = [dict objectForKey:@"longitude"];
-    
+    model.btnclick=NO;
     
     [delegate saveContext];
     

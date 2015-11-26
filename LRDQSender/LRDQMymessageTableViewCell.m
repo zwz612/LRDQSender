@@ -65,8 +65,8 @@
 -(void)clicked:(UIButton*)sender{
     if ([_delegate respondsToSelector:@selector(messageCell:makeSureClicked:)]) {
         [_delegate messageCell:self makeSureClicked:sender];
-    }
-    
+       [_makeSure setImage:[UIImage imageNamed:@"cancelBtu"] forState:UIControlStateNormal];    }
+       
     
 }
 -(void)layoutSubviews{
@@ -92,13 +92,27 @@
     NSString*string=[NSString stringWithFormat:@"抢单的人:%@",msgFrameModel.msgModel.getUser];
     _getUser.textColor=[UIColor redColor];
     _getUser.text=string;
+    
+    if ([msgFrameModel.msgModel.get isEqualToString:@"1"]) {
+        
+        if (msgFrameModel.msgModel.btnclick==YES) {
+            [_makeSure setImage:[UIImage imageNamed:@"finishCancel"] forState:UIControlStateNormal];
+            
+        }else{
+        
+        [_makeSure setImage:[UIImage imageNamed:@"cancelBtu"] forState:UIControlStateNormal];
+        }
+    }else
+    {
+    
+    
     if ([msgFrameModel.msgModel.finish isEqualToString:@"0"]) {
         [_makeSure setImage:[UIImage imageNamed:@"makeSure"] forState:UIControlStateNormal];
     }
     else if ([msgFrameModel.msgModel.finish isEqualToString:@"1"]){
         [_makeSure setImage:[UIImage imageNamed:@"finish"] forState:UIControlStateNormal] ;
     }
-    
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

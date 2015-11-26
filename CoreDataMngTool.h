@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LRDQHomeMsgModel.h"
-
+#import "LRDQHomeMsgFrameModel.h"
 @interface CoreDataMngTool : NSObject
 @property (strong,nonatomic) NSArray * msgList;
 @property (copy,nonatomic) NSString * curTel;//1109
@@ -16,6 +16,7 @@
 @property (strong,nonatomic)NSArray * catchMsg;
 @property(copy,nonatomic)NSString*selectTel;
 @property(copy,nonatomic)NSString * distance;
+@property (strong,nonatomic)LRDQHomeMsgFrameModel * deleteModel;
 +(instancetype)shareCoreDatamngTool;
 
 //查询所有Person的方法

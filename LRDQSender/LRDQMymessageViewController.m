@@ -14,7 +14,7 @@
 #import "LRDQHomeTableViewCell.h"
 #import "RDVTabBarController.h"
 #import <Parse/Parse.h>
-
+#import "MJRefreshNormalHeader.h"
 #import "LRDQGetWebList.h"
 
 
@@ -135,27 +135,73 @@ typedef enum{
     [self.tableView reloadData];
 }
 -(void)messageCell:(LRDQMymessageTableViewCell *)messageCell makeSureClicked:(UIButton *)makeSure{
-    messageCell.msgFrameModel.msgModel.finish = @"1";
-    PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
-    [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
-    [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
-        if (!error) {
-            for (PFObject * wallObject in [[NSArray alloc]initWithArray:objects]) {
-                dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-                dispatch_async(asynQueue, ^{
-                    messageCell.msgFrameModel.msgModel.finish = @"1";
-                    [wallObject setObject:messageCell.msgFrameModel.msgModel.finish forKey:@"finish"];
-                    [wallObject saveInBackground];
-                    [wallObject fetch];
-                });
+    if ([messageCell.msgFrameModel.msgModel.get isEqualToString:@"1"]) {
+    
+        
+        PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
+        
+        [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
+        [query whereKey:@"time" equalTo:messageCell.msgFrameModel.msgModel.time];
+        [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
+       
+        [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error)
+         {
+             if (!error)
+             {
+                 for (PFObject *obj in objects)
+                 {
+                     [obj deleteInBackgroundWithBlock:^(BOOL success,NSError *error)
+                      {
+                          if (success)
+                          {
+                              [self.tableView.header beginRefreshing];
+                              [self.tableView reloadData];
+                              messageCell.msgFrameModel.msgModel.btnclick=YES;
+
+                              
+                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                  [self.tableView.header endEditing:YES];
+                              });
+                          }
+                      }];
+                 }
+             }
+             else
+             {
+                 NSString * errorString = [[error userInfo ]objectForKey:@"error"];
+                 NSLog(@"error:%@",errorString);
+             }
+         }];
+    }else{
+    
+        messageCell.msgFrameModel.msgModel.finish = @"1";
+        PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
+        [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
+        [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
+        [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
+            if (!error) {
+                for (PFObject * wallObject in [[NSArray alloc]initWithArray:objects]) {
+                    dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                    dispatch_async(asynQueue, ^{
+                        messageCell.msgFrameModel.msgModel.finish = @"1";
+                        [wallObject setObject:messageCell.msgFrameModel.msgModel.finish forKey:@"finish"];
+                        [wallObject saveInBackground];
+                        [wallObject fetch];
+                    });
+                }
+                
+            }else{
+                NSString * errorString = [[error userInfo ]objectForKey:@"error"];
+                NSLog(@"error:%@",errorString);
             }
-            
-        }else{
-            NSString * errorString = [[error userInfo ]objectForKey:@"error"];
-            NSLog(@"error:%@",errorString);
-        }
-    }];
+        }];
+    
+    }
+    
+    
+    
+    
+ 
     [self.tableView reloadData];
 }
 
