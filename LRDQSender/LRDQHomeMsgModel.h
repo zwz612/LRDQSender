@@ -26,7 +26,7 @@
 @property (nonatomic, retain) NSString * latitude;
 @property (nonatomic, assign) BOOL btnclick;
 @property (assign, nonatomic) float meter;
-
+@property (nonatomic, retain) NSString * price;//1127
 +(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict;
 
 @end

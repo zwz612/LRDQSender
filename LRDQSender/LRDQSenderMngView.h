@@ -12,7 +12,7 @@
 @protocol LRDQSenderMngViewDelegate <NSObject>
 
 @required
--(void)senderMngView:(LRDQSenderMngView*)senderMngView senderMngtoHome:(NSString*)addressMng :(NSString*)telMng :(NSString*)descMng;
+-(void)senderMngView:(LRDQSenderMngView*)senderMngView senderMngtoHome:(NSString*)addressMng :(NSString*)telMng :(NSString*)descMng :(NSString * )price;
 @end
 
 @interface LRDQSenderMngView : UIView
@@ -20,6 +20,8 @@
 @property(weak,nonatomic)UITextField* tel;
 @property (weak,nonatomic)UITextField * address;
 @property (weak,nonatomic)UITextField * desc;
+@property (weak,nonatomic)UITextField * price;//1127
+
 
 @property(weak,nonatomic)UIButton* cancel;
 @property(weak,nonatomic)UIButton* sender;

@@ -41,6 +41,7 @@
     _getUserFrame=CGRectMake(CGRectGetMinX(_descFrame), CGRectGetMaxY(_descFrame)+kMargin,[UIScreen mainScreen].bounds.size.width, 18.f);
     _distanceFrame =CGRectMake(CGRectGetMinX(_descFrame), CGRectGetMaxY(_descFrame)+kMargin, [UIScreen mainScreen].bounds.size.width, 18.f);
     
+    _priceFrame = CGRectMake(CGRectGetMinX(_getMarlFrame), CGRectGetMaxY(_getMarlFrame)+kMargin, [UIScreen mainScreen].bounds.size.width-CGRectGetMinX(_getMarlFrame), CGRectGetHeight(_telFrame));//1127
     
 }
 -(CGFloat)cellHeight

@@ -163,7 +163,7 @@
     LRDQHomeMsgFrameModel * msgFrameModel=self.lists[indexPath.row];
     return msgFrameModel.cellHeight;
 }
--(void)senderMngView:(LRDQSenderMngView *)senderMngView senderMngtoHome:(NSString *)addressMng :(NSString *)telMng :(NSString *)descMng{
+-(void)senderMngView:(LRDQSenderMngView *)senderMngView senderMngtoHome:(NSString *)addressMng :(NSString *)telMng :(NSString *)descMng :(NSString *)price{
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
@@ -181,6 +181,7 @@
                     NSDictionary * dict=@{@"address":addressMng,
                                           @"tel":telMng,
                                           @"desc":descMng,
+                                          @"price":price,
                                           @"get":@"1",
                                           @"time":[NSString HMSWithDate:nil],
                                           @"loginTel":[CoreDataMngTool shareCoreDatamngTool].curTel,
@@ -202,6 +203,7 @@
                     [object setObject:msgModel.finish forKey:@"finish"];
                     [object setObject:msgModel.latitude forKey:@"latitude"];
                     [object setObject:msgModel.longitude forKey:@"longitude"];
+                    [object setObject:msgModel.price forKey:@"price"];
                     [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                         if (!succeeded){
                             //Go back to the wall

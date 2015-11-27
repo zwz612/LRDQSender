@@ -26,6 +26,9 @@
 @property (weak ,nonatomic)UILabel * address;
 @property (weak,nonatomic)UILabel * tel;
 @property (weak,nonatomic)UILabel * desc;
+
+@property (weak,nonatomic)UILabel * price;//1127
+
 @property (strong,nonatomic)NSArray *array;
 @property(weak,nonatomic)UILabel*getUser;
 @property(weak,nonatomic)UIButton*makeSure;

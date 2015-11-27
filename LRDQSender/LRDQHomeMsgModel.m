@@ -26,7 +26,7 @@
 @dynamic btnclick;
 @dynamic distance;
 @dynamic meter;
-
+@dynamic price;//1127
 +(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict{
     
     AppDelegate*delegate=[UIApplication sharedApplication].delegate;
@@ -41,11 +41,10 @@
     model.loginTel = [dict objectForKey:@"loginTel"];
     model.getUser = [dict objectForKey:@"getUser"];
     model.finish=[dict objectForKey:@"finish"];
-    
-
     model.distance = [dict objectForKey:@"distance"];
     model.latitude = [dict objectForKey:@"latitude"];
     model.longitude = [dict objectForKey:@"longitude"];
+    model.price = [dict objectForKey:@"price"];
     model.btnclick=NO;
     
     [delegate saveContext];

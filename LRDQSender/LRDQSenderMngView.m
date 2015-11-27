@@ -13,7 +13,7 @@
 
 +(instancetype)senderMngView{
     LRDQSenderMngView * senderMngView=[[LRDQSenderMngView alloc]init];
-    senderMngView.bounds=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width*0.7,5*Margin+3*30.f+44.f);
+    senderMngView.bounds=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width*0.7,6*Margin+4*30.f+44.f);
     senderMngView.layer.cornerRadius=15.f;
     senderMngView.center=CGPointMake([UIScreen mainScreen].bounds.size.width*0.5,[UIScreen mainScreen].bounds.size.height/3);
     senderMngView.backgroundColor=[UIColor colorWithRed:103.f/255.f green:210.f/255.f blue:243.f/255.f alpha:1];
@@ -41,6 +41,12 @@
         [self addSubview:address];
        address.backgroundColor=[UIColor whiteColor];
         
+        UITextField * price = [[UITextField alloc]init];
+        _price = price;
+        price.placeholder = @"请输入赏金";
+        price.backgroundColor = [UIColor whiteColor];
+        [self addSubview:price];//1127＊＊＊＊＊＊＊
+        
         UIButton * cancel=[[UIButton alloc]init];
         _cancel=cancel;
         [self addSubview:cancel];
@@ -66,9 +72,12 @@
     
     _desc.frame=CGRectMake(_tel.left, _tel.bottom+Margin, _tel.width, _tel.height);
     
-    _cancel.frame=CGRectMake(_desc.left, _desc.bottom+8.f, (_desc.width-Margin)*0.5, 44.f);
+    _price.frame = CGRectMake(_desc.left, _desc.bottom+Margin, _tel.width, _tel.height);//1127
+
+    _cancel.frame=CGRectMake(_price.left, _price.bottom+8.f, (_price.width-Margin)*0.5, 44.f);
     
     _sender.frame=CGRectMake(_cancel.right+Margin, _cancel.top, (_desc.width-Margin)*0.5, 44.f);
+    
     
     
 }
@@ -77,13 +86,13 @@
     
 }
 -(void)senderButtonClicked:(UIButton*)sender{
-    if ([_delegate respondsToSelector:@selector(senderMngView:senderMngtoHome:::)]) {
+    if ([_delegate respondsToSelector:@selector(senderMngView:senderMngtoHome::::)]) {
         
         if (_address.text.length==0||_tel.text.length==0||_desc.text.length==0) {
             UIAlertView*alertView=[[UIAlertView alloc]initWithTitle:@"提示" message:@"您还没输全信息呢，亲！" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
             [alertView show];
         }else {
-        [_delegate senderMngView:self senderMngtoHome:_address.text :_tel.text :_desc.text];
+            [_delegate senderMngView:self senderMngtoHome:_address.text :_tel.text :_desc.text :_price.text];
     }
     }
 }

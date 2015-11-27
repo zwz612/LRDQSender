@@ -55,6 +55,13 @@
         _makeSure=makeSure;
         [makeSure addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:makeSure];
+        
+        //1127****/
+        UILabel * price = [[UILabel alloc]init];
+        _price =price;
+        [self addSubview:price];
+        
+        
     }
     return self;
 }
@@ -76,7 +83,7 @@
     _getUser.frame=_msgFrameModel.getUserFrame;
     _makeSure.frame=_msgFrameModel.contactFrame;
 
-    
+    _price.frame = _msgFrameModel.priceFrame;
 }
 -(void)setMsgFrameModel:(LRDQHomeMsgFrameModel *)msgFrameModel
 {
@@ -109,6 +116,10 @@
         [_makeSure setImage:[UIImage imageNamed:@"finish"] forState:UIControlStateNormal] ;
     }
     }
+    
+    _price.text = msgFrameModel.msgModel.price;
+    _price.textColor = [UIColor colorWithRed:240.f/255.f green:201.f/255.f blue:56.f/255.f alpha:1.f];//1127
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

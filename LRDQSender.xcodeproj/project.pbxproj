@@ -164,6 +164,7 @@
 		C76F89511BAAB4BF00A17953 /* NSString+MoreExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreExtentions.m"; sourceTree = "<group>"; };
 		C76F89521BAAB4BF00A17953 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		C76F89531BAAB4BF00A17953 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		C771FD1B1C084C860020AA93 /* LRDQSender 14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "LRDQSender 14.xcdatamodel"; sourceTree = "<group>"; };
 		C776A91E1BEC5D1F00DBC761 /* LRDQSender 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "LRDQSender 6.xcdatamodel"; sourceTree = "<group>"; };
 		C77E75191BDB993C0099FAC5 /* MBProgressHUD+MoreExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MoreExtension.h"; sourceTree = "<group>"; };
 		C77E751A1BDB993C0099FAC5 /* MBProgressHUD+MoreExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MoreExtension.m"; sourceTree = "<group>"; };
@@ -1181,6 +1182,7 @@
 		C79316511BA90E9E0078D9B5 /* LRDQSender.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C771FD1B1C084C860020AA93 /* LRDQSender 14.xcdatamodel */,
 				C7F587C91C05B80900C508DD /* LRDQSender 13.xcdatamodel */,
 				C795A77B1C05519E004E7ED7 /* LRDQSender 12.xcdatamodel */,
 				C7F0389F1BFEBAE500B596D0 /* LRDQSender 11.xcdatamodel */,
@@ -1196,7 +1198,7 @@
 				C7BC79BD1BE7624300815A56 /* LRDQSender 2.xcdatamodel */,
 				C79316521BA90E9E0078D9B5 /* LRDQSender.xcdatamodel */,
 			);
-			currentVersion = C7F587C91C05B80900C508DD /* LRDQSender 13.xcdatamodel */;
+			currentVersion = C771FD1B1C084C860020AA93 /* LRDQSender 14.xcdatamodel */;
 			path = LRDQSender.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

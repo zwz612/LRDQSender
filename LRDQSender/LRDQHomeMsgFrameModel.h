@@ -26,7 +26,7 @@
 @property(assign ,nonatomic)CGRect contactFrame;
 @property(assign,nonatomic)CGRect getUserFrame;
 @property(assign,nonatomic)CGRect distanceFrame;
-
+@property(assign,nonatomic)CGRect priceFrame;//1127
 @property(strong,nonatomic)LRDQHomeMsgModel * msgModel;
 
 @property(assign,nonatomic)BOOL stroll;

@@ -51,7 +51,10 @@
     _distance = distance;
     [self addSubview:distance];
     
-    
+    //1127
+    UILabel * price = [[UILabel alloc]init];
+    _price = price;
+    [self addSubview:price];
 }
 -(void)getMailButtonClicked:(UIButton*)sender{
     if ([_delegate respondsToSelector:@selector(homeCell:getMailClicked:)]) {
@@ -73,8 +76,8 @@
     _desc.frame=_msgFrameModel.descFrame;
     _getMail.frame=_msgFrameModel.getMarlFrame;
     _contact.frame=_msgFrameModel.contactFrame;
-    
-    _distance.frame = _msgFrameModel.distanceFrame;//1119
+    _distance.frame = _msgFrameModel.distanceFrame;
+    _price.frame = _msgFrameModel.priceFrame;//1127
 }
 -(void)setMsgFrameModel:(LRDQHomeMsgFrameModel *)msgFrameModel
 {
@@ -93,6 +96,9 @@
     }
     _distance.text = msgModel.distance;
     [_distance setTextColor:[UIColor redColor]];
+    
+    _price.text = [NSString stringWithFormat:@"赏金:¥%@",msgModel.price];//1127
+    _price.textColor = [UIColor colorWithRed:240.f/255.f green:201.f/255.f blue:56.f/255.f alpha:1.f];//1127
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
