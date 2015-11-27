@@ -12,11 +12,12 @@
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loginTel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meter" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="selmsg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LRDQHomeMsgModel" positionX="-54" positionY="-9" width="128" height="255"/>
+        <element name="LRDQHomeMsgModel" positionX="-54" positionY="-9" width="128" height="270"/>
     </elements>
 </model>

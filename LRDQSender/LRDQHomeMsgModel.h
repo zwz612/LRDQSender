@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+#import <UIKit/UIKit.h>
 
 @interface LRDQHomeMsgModel : NSManagedObject
+
 @property (nonatomic ,retain) NSString * time;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * desc;
@@ -19,10 +20,13 @@
 @property (nonatomic, retain) NSString * selmsg;
 @property (nonatomic, retain) NSString * loginTel;
 @property (nonatomic, retain) NSString * getUser;
-+(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict;
 @property (nonatomic, retain) NSString * finish;
-@property (nonatomic, retain) NSString * distance;//1119
+@property (nonatomic, retain) NSString * distance;
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSString * latitude;
 @property (nonatomic, assign) BOOL btnclick;
+@property (assign, nonatomic) float meter;
+
++(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict;
+
 @end

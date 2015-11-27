@@ -46,7 +46,6 @@ typedef enum{
             default:
                 break;
         }
-    
         for (int i=0; i<_cellContents.count; i++)
         {
             LRDQHomeMsgModel * msgModel=_cellContents[i];
@@ -54,9 +53,7 @@ typedef enum{
             [_lists addObject:msgFrameModel];
             
         }
-        
     }
-    
     return _lists;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -136,10 +133,7 @@ typedef enum{
 }
 -(void)messageCell:(LRDQMymessageTableViewCell *)messageCell makeSureClicked:(UIButton *)makeSure{
     if ([messageCell.msgFrameModel.msgModel.get isEqualToString:@"1"]) {
-    
-        
         PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
-        
         [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
         [query whereKey:@"time" equalTo:messageCell.msgFrameModel.msgModel.time];
         [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
@@ -174,7 +168,7 @@ typedef enum{
          }];
     }else{
     
-        messageCell.msgFrameModel.msgModel.finish = @"1";
+        messageCell.msgFrameModel.msgModel.finish = @"1";         
         PFQuery * query = [PFQuery queryWithClassName:@"LRDQLists"];
         [query whereKey:@"tel" equalTo:messageCell.msgFrameModel.msgModel.tel];
         [query whereKey:@"desc" equalTo:messageCell.msgFrameModel.msgModel.desc];
@@ -197,11 +191,6 @@ typedef enum{
         }];
     
     }
-    
-    
-    
-    
- 
     [self.tableView reloadData];
 }
 

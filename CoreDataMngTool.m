@@ -28,22 +28,19 @@ static CoreDataMngTool * tool;
     
     NSEntityDescription *desc = [NSEntityDescription entityForName:@"LRDQHomeMsgModel" inManagedObjectContext:delegate.managedObjectContext];
     request.entity = desc;
-    
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
     NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"get" ascending:NO];
-
-    //request.sortDescriptors = [NSArray arrayWithObject:sort];
-    request.sortDescriptors = [NSArray arrayWithObjects:sort1,sort,nil];
+    NSSortDescriptor *sort2 = [NSSortDescriptor sortDescriptorWithKey:@"meter" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObjects:sort1,sort2,nil];
     NSError *error = nil;
+    
     NSArray *objs = [delegate.managedObjectContext executeFetchRequest:request error:&error];
     if (error) {
         [NSException raise:@"查询错误" format:@"%@", [error localizedDescription]];
     }
-
     
     return objs;
-
 }
+
 +(void)deleteMsg:(LRDQHomeMsgModel *)contact{
     
     AppDelegate* delegate = [UIApplication sharedApplication].delegate;

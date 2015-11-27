@@ -24,7 +24,8 @@
 @dynamic longitude;
 @dynamic latitude;
 @dynamic btnclick;
-//@dynamic distance;
+@dynamic distance;
+@dynamic meter;
 
 +(instancetype)LRDQHomeMsgModelWithDict:(NSDictionary *)dict{
     
@@ -40,8 +41,9 @@
     model.loginTel = [dict objectForKey:@"loginTel"];
     model.getUser = [dict objectForKey:@"getUser"];
     model.finish=[dict objectForKey:@"finish"];
-    model.distance =[dict objectForKey:@"distance"];//1119
     
+
+    model.distance = [dict objectForKey:@"distance"];
     model.latitude = [dict objectForKey:@"latitude"];
     model.longitude = [dict objectForKey:@"longitude"];
     model.btnclick=NO;
@@ -50,5 +52,6 @@
     
     return model;
 }
+
 
 @end

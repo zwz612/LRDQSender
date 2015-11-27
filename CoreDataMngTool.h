@@ -11,8 +11,8 @@
 #import "LRDQHomeMsgFrameModel.h"
 @interface CoreDataMngTool : NSObject
 @property (strong,nonatomic) NSArray * msgList;
-@property (copy,nonatomic) NSString * curTel;//1109
-@property (strong ,nonatomic)NSArray * allMsg;//1111
+@property (copy,nonatomic) NSString * curTel;
+@property (strong ,nonatomic)NSArray * allMsg;
 @property (strong,nonatomic)NSArray * catchMsg;
 @property(copy,nonatomic)NSString*selectTel;
 @property(copy,nonatomic)NSString * distance;
@@ -30,5 +30,5 @@
 +(NSArray*)mycatchList;
 
 
-+(NSArray*)searchLoadList;//1109
+//+(NSArray*)searchLoadList;//1109
 @end

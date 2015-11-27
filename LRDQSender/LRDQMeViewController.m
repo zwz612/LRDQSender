@@ -40,9 +40,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     LRDQTBController*tabarvc=[LRDQTBController TBController];
     [tabarvc setHidesBottomBarWhenPushed:YES];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,9 +47,6 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)addSubviews{
-    
-    
-    
     UIImageView*backgroundView=[[UIImageView alloc]init];
     backgroundView.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, HeightRatio*[UIScreen mainScreen].bounds.size.height);
     [self.view addSubview:backgroundView];
@@ -128,7 +122,6 @@
 //我的信息
 -(void)MymessageClick{
     [self performSegueWithIdentifier:@"toMymessage" sender:nil];
-
 }
 //查询物流
 -(void)WhereThingsClick{
@@ -145,9 +138,6 @@
     [self.navigationController presentViewController:logonVC animated:YES completion:^{
         
     }];
-    [PFUser logOut];
-    
-    
-    
+    [PFUser logOut];  
 }
 @end

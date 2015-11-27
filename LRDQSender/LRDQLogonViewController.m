@@ -120,17 +120,10 @@
         //网络账号登录
         [PFUser logInWithUsernameInBackground:self.telnumber.text password:self.passwordCount.text block:^(PFUser *user,NSError * error){
             if (user) {
-                /*-------------------------------------------------------------修改的部分----------------------------------------------------------*/
                 [UIApplication sharedApplication].keyWindow.rootViewController = tabarVC.TBController;
-                
-
                 [self dismissViewControllerAnimated:YES completion:^{
                     
                 }];
-                /*-------------------------------------------------------------修改的部分----------------------------------------------------------*/
-                
-                
-                
             }else{
                 NSString * errorString = [[ error userInfo]objectForKey:@"error"];
                 UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"error" message:errorString delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -140,10 +133,6 @@
         }];
 
     });
-
-    
-    
-
 }
 - (IBAction)back:(UIButton*)sender{
     UIStoryboard*stord=[UIStoryboard storyboardWithName:@"LRDQLogonAndSignUpStoryBoard" bundle:nil];
@@ -173,8 +162,6 @@
         NSString* filepath = [docPath stringByAppendingPathComponent:@"userinfo.plist"];
         [dict writeToFile:filepath atomically:YES];
     }
-    
-
 }
 
 @end

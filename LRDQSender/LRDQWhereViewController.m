@@ -30,55 +30,29 @@
     //加载转圈圈
     MBProgressHUD*hud=[MBProgressHUD showHUDAddedTo:self.view LabelText:@"拼命加载中。。。" animated:YES];
     hud.animationType=MBProgressHUDAnimationZoomIn;
-
-    
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-    
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
-
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(void)viewWillAppear:(BOOL)animated{
     [[self rdv_tabBarController]setTabBarHidden:YES animated:YES];
-    
-    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [[self rdv_tabBarController]setTabBarHidden:NO animated:NO];
     
 }
-//-(void)viewDidDisappear:(BOOL)animated{
-//    _webView.delegate = nil;
-//    [_webView loadHTMLString:@"" baseURL:nil];
-//    [_webView stopLoading];
-//    [_webView removeFromSuperview];
-//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    [_webView removeFromSuperview];
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

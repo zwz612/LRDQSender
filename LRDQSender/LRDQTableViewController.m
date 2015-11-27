@@ -20,11 +20,8 @@
 #import "NSString+MoreExtentions.h"
 #import "CCLocationManager.h"
 
-
 #define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
 #define IS_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8)
-typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
-
 
 @interface LRDQTableViewController (){
     CLLocationManager *locationmanager;
@@ -38,23 +35,17 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
 
 @property (strong,nonatomic) NSMutableArray * carchList;
 
-@property (strong,nonatomic)CLLocationManager *locationManager;
+//@property (strong,nonatomic)CLLocationManager *locationManager;
 @property(assign,nonatomic)CLLocationCoordinate2D coor;
 
-//@property (strong,nonatomic) LRDQDistance * distance;
 @property (strong,nonatomic) NSMutableArray * disArr;
-
-@property (weak,nonatomic)Myblock block;
-//-(void)locationMsg:(void(^)( LRDQHomeMsgModel *msgModel))block;
-
 @end
 
 @implementation LRDQTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*＊定位＊＊＊＊＊＊＊＊＊＊＊*/
-  
+    
     if (IS_IOS8) {
         [UIApplication sharedApplication].idleTimerDisabled = TRUE;
         locationmanager = [[CLLocationManager alloc] init];
@@ -62,61 +53,52 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
         [locationmanager requestWhenInUseAuthorization];     //NSLocationWhenInUseDescription
         locationmanager.delegate = self;
     }
-    
     [[CCLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
         _coor = locationCorrrdinate;
-        NSLog(@"经纬度：%f %f",locationCorrrdinate.latitude,locationCorrrdinate.longitude);
     }];
-    /*＊定位＊＊＊＊＊＊＊＊＊＊＊*/
-    
-    
-    
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:103.f/255.f green:210.f/255.f blue:243.f/255.f alpha:1];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    [self loadNewData];
-    [self loadNewData];
-    
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadNewData];
+}
+
 -(void)loadNewData{
     [self.tableView.header beginRefreshing];
+    
+
+    
     if ([PFUser currentUser]) {
         PFQuery * query=[PFQuery queryWithClassName:@"LRDQLists"];
         [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
             if (!error) {
                 [CoreDataMngTool deleteAllMsg];
+                //[self.lists removeAllObjects];
+                //self.lists = nil;
                 self.myLists = [NSMutableArray array];
                 for (int i=0; i<objects.count; i++) {
                     NSDictionary * dict=objects[i];
-                    [LRDQHomeMsgModel LRDQHomeMsgModelWithDict:dict];
-                    [self.lists removeAllObjects];
-                    for (int j=0; j<[CoreDataMngTool searchLists].count; j++) {
-                        LRDQHomeMsgModel * msgModel=[CoreDataMngTool searchLists][j];
-                        
-                        //1125＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+                    LRDQHomeMsgModel * msgModel=[LRDQHomeMsgModel LRDQHomeMsgModelWithDict:dict];
                         CGFloat latitude =[msgModel.latitude floatValue];
                         CGFloat longitude =[msgModel.longitude floatValue];
-                        
+                        //第一个坐标
                         CLLocation *current=[[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
                         //第二个坐标
                         CLLocation *before=[[CLLocation alloc] initWithLatitude:self.coor.latitude longitude:self.coor.longitude];
                         // 计算距离
                         CLLocationDistance meters=[current distanceFromLocation:before];
                         msgModel.distance =[NSString stringWithFormat:@"距离你:%0.1f 公里",meters/1000];
-                        //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊1125
-                        
-                        LRDQHomeMsgFrameModel * msgFrameModel=[LRDQHomeMsgFrameModel LRDQHomeMsgFrameModel:msgModel];
-                        [self.lists addObject:msgFrameModel];
-                    }
-                    
-                    [self.tableView reloadData];
-                    
+                        msgModel.meter = meters/1000;
                 }
+                self.lists = nil;
+                [self.tableView reloadData];
+                
                 [self.tableView.header endRefreshing];
             }else{
-                
-                //NSLog(@"Error");
             }
         }];
     }
@@ -133,15 +115,15 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
     
     return YES;
 }
-
-
 -(NSMutableArray *)lists
 {
     if (_lists==nil) {
         _lists=[NSMutableArray array];
-        for (int i=0; i<[CoreDataMngTool searchLists].count; i++)
+        NSArray* hmarray = [CoreDataMngTool searchLists];
+        
+        for (int i=0; i<hmarray.count; i++)
         {
-            LRDQHomeMsgModel * msgModel=[CoreDataMngTool searchLists][i];
+            LRDQHomeMsgModel * msgModel=hmarray[i];
             LRDQHomeMsgFrameModel * msgFrameModel=[LRDQHomeMsgFrameModel LRDQHomeMsgFrameModel:msgModel];
             [_lists addObject:msgFrameModel];
         }
@@ -195,7 +177,6 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                 CLPlacemark * firstPlacemark = [placemarks objectAtIndex:0];
                 NSString * latitude =[NSString stringWithFormat:@"%f",firstPlacemark.location.coordinate.latitude];
                 NSString * longitude = [NSString stringWithFormat:@"%f",firstPlacemark.location.coordinate.longitude];
-                //NSLog(@"经纬度%f,%f",firstPlacemark.location.coordinate.longitude,firstPlacemark.location.coordinate.latitude);
                 if ([telMng validatePhoneNumber]) {
                     NSDictionary * dict=@{@"address":addressMng,
                                           @"tel":telMng,
@@ -221,9 +202,6 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                     [object setObject:msgModel.finish forKey:@"finish"];
                     [object setObject:msgModel.latitude forKey:@"latitude"];
                     [object setObject:msgModel.longitude forKey:@"longitude"];
-                    
-                    
-                    
                     [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                         if (!succeeded){
                             //Go back to the wall
@@ -239,6 +217,7 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                                 for (int i=0; i<[CoreDataMngTool searchLists].count; i++) {
                                     LRDQHomeMsgModel * msgModel=[CoreDataMngTool searchLists][i];
                                     LRDQHomeMsgFrameModel * msgFrameModel=[LRDQHomeMsgFrameModel LRDQHomeMsgFrameModel:msgModel];
+
                                     [self.lists addObject:msgFrameModel];
                                     //我的订单共用数据
                                     [self.myLists addObject:msgModel];
@@ -247,7 +226,8 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                                 [CoreDataMngTool shareCoreDatamngTool].msgList = self.myLists;
                                 
                             }
-                            [self.tableView reloadData];
+                            //[self.tableView reloadData];
+                            [self loadNewData];
                         }
                     }];
                     if (_lists.count>1) {
@@ -260,14 +240,9 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                     UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:@"电话号码错误" delegate:nil cancelButtonTitle:@"知道了！" otherButtonTitles:nil, nil];
                     [alertView show];
                 }
-
-                
-                
-                
             }
         }];
     });
-    [self loadNewData];
     [senderMngView hide];
 }
 
@@ -277,6 +252,11 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
     [query whereKey:@"desc" equalTo:homeCell.msgFrameModel.msgModel.desc];
     [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
         if (!error) {
+            if (objects.count == 0) {
+                UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:@"订单已取消" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertView show];
+                [self loadNewData];
+            }else{
             for (PFObject * wallObject in [[NSArray alloc]initWithArray:objects]) {
                 dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                 dispatch_async(asynQueue, ^{
@@ -287,7 +267,7 @@ typedef void(^Myblock) (LRDQHomeMsgModel *msgModel);
                     [wallObject fetch];
                 });
             }
-            
+            }
         }else{
             NSString * errorString = [[error userInfo ]objectForKey:@"error"];
             NSLog(@"error:%@",errorString);

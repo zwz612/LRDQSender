@@ -25,10 +25,6 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        UIButton*telnumber=[[UIButton alloc]init];
-//        _telnumber=telnumber;
-//        [self addSubview:telnumber];
-//        telnumber.titleLabel.textColor=[UIColor redColor];
         
         UILabel* time = [[UILabel alloc]init];
         _time = time;

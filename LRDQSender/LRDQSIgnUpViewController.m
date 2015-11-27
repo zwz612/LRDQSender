@@ -40,10 +40,7 @@
 
     dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(asynQueue, ^{
-        //增加Tarbar
         LRDQTBController*tabarVC=[LRDQTBController TBController];
-
-        //创建新的线程
         //网络注册
         if (![_telNumTextField.text validatePhoneNumber]) {
             UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:@"输入的不是手机号" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
@@ -68,9 +65,6 @@
                         [self dismissViewControllerAnimated:YES completion:^{
                             
                         }];
-                        
-                        
-                        
                     }else{
                         NSString * errorString = [[ error userInfo]objectForKey:@"error"];
                         UIAlertView * alertView =[[UIAlertView alloc]initWithTitle:@"error" message:errorString delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
