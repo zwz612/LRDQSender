@@ -22,7 +22,7 @@
 -(void)initWithmsgModel:(LRDQHomeMsgModel*)msgModel
 {
     _msgModel=msgModel;
-    _timeFrame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,kMargin);
+    _timeFrame=CGRectMake(0, 2.f, [UIScreen mainScreen].bounds.size.width,kMargin);
     CGFloat addressFrameW=[UIScreen mainScreen].bounds.size.width*textWidthRatio;
     CGFloat addressFrameH=[msgModel.address heightForWidth:addressFrameW Font:addressFont];
     
@@ -36,7 +36,7 @@
 
     _getMarlFrame=CGRectMake(CGRectGetMaxX(_addressFrame)+kMargin, CGRectGetMaxY(_addressFrame), 44.f, 44.f);
     
-    _contactFrame=CGRectMake(CGRectGetMaxX(_getMarlFrame)+kMargin, CGRectGetMinY(_getMarlFrame), 44.f, 44.f);
+    _contactFrame=CGRectMake(CGRectGetMaxX(_getMarlFrame)+2*kMargin, CGRectGetMinY(_getMarlFrame), 44.f, 44.f);
     
     _getUserFrame=CGRectMake(CGRectGetMinX(_descFrame), CGRectGetMaxY(_descFrame)+kMargin,[UIScreen mainScreen].bounds.size.width, 18.f);
     _distanceFrame =CGRectMake(CGRectGetMinX(_descFrame), CGRectGetMaxY(_descFrame)+kMargin, [UIScreen mainScreen].bounds.size.width, 18.f);

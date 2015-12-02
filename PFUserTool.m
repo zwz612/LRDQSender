@@ -14,6 +14,7 @@ static PFUserTool*tool;
     dispatch_once(&once, ^{
         tool = [[PFUserTool alloc]init];
         tool.userName = nil;
+        tool.password=nil;
     });
     return tool;
  

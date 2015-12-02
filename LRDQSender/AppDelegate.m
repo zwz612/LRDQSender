@@ -17,6 +17,9 @@
 #import "VersionSingletonTool.h"
 #import "LRDQTableViewController.h"
 #import "LRDQTBController.h"
+#import <SMS_SDK/SMSSDK.h>
+#define appKey @"cd15ad6d69d0"
+#define appSecret @"d684321ea54a52ce5bf0e7229e26f17e"
 @interface AppDelegate ()
 @end
 
@@ -25,12 +28,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 {
-    
+    [SMSSDK registerApp:appKey
+             withSecret:appSecret];
+
     dispatch_queue_t asynQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(asynQueue, ^{
         //网络
-        [Parse setApplicationId:@"tf46oRYGjQa8GLz9DueRY4qmcWBzu6PPzrBZUQEl"
-                      clientKey:@"a2xShS8R4PnjJNOjHlMSpUrigBg99ZGJc3qkBJOq"];
+        [Parse setApplicationId:@"HsrY3Lly8HhUgYk8X4t081bCFObpQ78kJN0NGisC"
+                      clientKey:@"Ig8sPTOyjnk5a3T34iCpqFh4nxwVueR8Em4iwc35"];
     });
     
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

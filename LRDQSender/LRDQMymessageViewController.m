@@ -94,8 +94,9 @@ typedef enum{
     cell.msgFrameModel = frameModel;
     switch (_eMymessageSel) {
         case eMysendLister:
+            cell.makeSure.enabled =YES;
             cell.makeSure.hidden =NO;
-            cell.getUser.hidden  = NO;
+            cell.getUser.hidden = NO;
             break;
         case eMycatchLister:
             cell.makeSure.hidden =YES;
@@ -148,14 +149,8 @@ typedef enum{
                       {
                           if (success)
                           {
-                              [self.tableView.header beginRefreshing];
                               [self.tableView reloadData];
                               messageCell.msgFrameModel.msgModel.btnclick=YES;
-
-                              
-                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                  [self.tableView.header endEditing:YES];
-                              });
                           }
                       }];
                  }

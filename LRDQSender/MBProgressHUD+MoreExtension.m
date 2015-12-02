@@ -14,7 +14,7 @@
     
     MBProgressHUD*hud=[MBProgressHUD showHUDAddedTo:view animated:YES];
     
-    hud.labelText=@"拼命加载中...";
+    hud.labelText=labelText;
 
     
     

@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F21C6E1C09E6E700A0E67A /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C6B1C09E6E700A0E67A /* MOBFoundation.framework */; };
+		04F21C6F1C09E6E700A0E67A /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C6C1C09E6E700A0E67A /* SMS_SDK.framework */; };
+		04F21C701C09E6E700A0E67A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F21C6D1C09E6E700A0E67A /* SMS_SDKLocalizable.strings */; };
+		04F21C721C09E82C00A0E67A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C711C09E82C00A0E67A /* Foundation.framework */; };
+		04F21C741C09E85300A0E67A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C731C09E85300A0E67A /* libPods.a */; };
+		04F21C761C09E86600A0E67A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C751C09E86600A0E67A /* UIKit.framework */; };
+		04F21C781C09E87D00A0E67A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C771C09E87D00A0E67A /* libicucore.dylib */; };
+		04F21C7A1C09E88F00A0E67A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C791C09E88F00A0E67A /* libz.dylib */; };
+		04F21C7D1C09E8A100A0E67A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C7B1C09E8A100A0E67A /* AddressBook.framework */; };
+		04F21C7E1C09E8A100A0E67A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C7C1C09E8A100A0E67A /* AddressBookUI.framework */; };
+		04F21C801C09E8AB00A0E67A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F21C7F1C09E8AB00A0E67A /* MessageUI.framework */; };
 		AE8C684B1BC8A4D600875480 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C684A1BC8A4D600875480 /* RDVTabBar.m */; };
 		AE8C684E1BC8A4F000875480 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C684C1BC8A4F000875480 /* RDVTabBarController.m */; };
 		AE8C684F1BC8A4F000875480 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C684D1BC8A4F000875480 /* RDVTabBarItem.m */; };
-		C3A45AD573C989AE5E4F5F06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0736EE55526CD75D4543DD /* libPods.a */; };
 		C7241D001BF5BB3700E072FC /* PFUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C7241CFF1BF5BB3700E072FC /* PFUserTool.m */; };
 		C7241D061BF5BFA600E072FC /* LRDQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7241D051BF5BFA600E072FC /* LRDQTableViewController.m */; };
 		C750D4671BB946E300FB39B3 /* LRDQSenderMngView.m in Sources */ = {isa = PBXBuildFile; fileRef = C750D4661BB946E300FB39B3 /* LRDQSenderMngView.m */; };
@@ -110,6 +120,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04F21C6B1C09E6E700A0E67A /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		04F21C6C1C09E6E700A0E67A /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		04F21C6D1C09E6E700A0E67A /* SMS_SDKLocalizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		04F21C711C09E82C00A0E67A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04F21C731C09E85300A0E67A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		04F21C751C09E86600A0E67A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04F21C771C09E87D00A0E67A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		04F21C791C09E88F00A0E67A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		04F21C7B1C09E8A100A0E67A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		04F21C7C1C09E8A100A0E67A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		04F21C7F1C09E8AB00A0E67A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0E0736EE55526CD75D4543DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B97B38067871CED098BCB4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7CBADB1DE8C747E580A7BD9B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +310,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A4407C1BC3E45E009705B6 /* libsqlite3.dylib in Frameworks */,
+				04F21C801C09E8AB00A0E67A /* MessageUI.framework in Frameworks */,
+				04F21C7D1C09E8A100A0E67A /* AddressBook.framework in Frameworks */,
+				04F21C7E1C09E8A100A0E67A /* AddressBookUI.framework in Frameworks */,
+				04F21C7A1C09E88F00A0E67A /* libz.dylib in Frameworks */,
+				04F21C781C09E87D00A0E67A /* libicucore.dylib in Frameworks */,
+				04F21C761C09E86600A0E67A /* UIKit.framework in Frameworks */,
+				04F21C741C09E85300A0E67A /* libPods.a in Frameworks */,
+				04F21C721C09E82C00A0E67A /* Foundation.framework in Frameworks */,
+				04F21C6F1C09E6E700A0E67A /* SMS_SDK.framework in Frameworks */,
 				C7A4407A1BC3E443009705B6 /* libstdc++.6.dylib in Frameworks */,
 				C7A440701BC3E40B009705B6 /* AudioToolbox.framework in Frameworks */,
 				C7A440711BC3E40B009705B6 /* CFNetwork.framework in Frameworks */,
@@ -300,8 +330,8 @@
 				C7A440761BC3E40B009705B6 /* Security.framework in Frameworks */,
 				C7A440801BC3E479009705B6 /* Parse.framework in Frameworks */,
 				C7A440771BC3E40B009705B6 /* StoreKit.framework in Frameworks */,
+				04F21C6E1C09E6E700A0E67A /* MOBFoundation.framework in Frameworks */,
 				C7A440781BC3E40B009705B6 /* SystemConfiguration.framework in Frameworks */,
-				C3A45AD573C989AE5E4F5F06 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +431,9 @@
 		C793163E1BA90E9E0078D9B5 = {
 			isa = PBXGroup;
 			children = (
+				04F21C6B1C09E6E700A0E67A /* MOBFoundation.framework */,
+				04F21C6C1C09E6E700A0E67A /* SMS_SDK.framework */,
+				04F21C6D1C09E6E700A0E67A /* SMS_SDKLocalizable.strings */,
 				C76A11DE1BE0C23B007878BF /* ios */,
 				C76A11D61BE0C231007878BF /* MBProgressHUD */,
 				C7F77ECF1BCBE42600B5F042 /* MJRefresh */,
@@ -724,6 +757,14 @@
 		E07E171D95335621C7533370 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04F21C7F1C09E8AB00A0E67A /* MessageUI.framework */,
+				04F21C7B1C09E8A100A0E67A /* AddressBook.framework */,
+				04F21C7C1C09E8A100A0E67A /* AddressBookUI.framework */,
+				04F21C791C09E88F00A0E67A /* libz.dylib */,
+				04F21C771C09E87D00A0E67A /* libicucore.dylib */,
+				04F21C751C09E86600A0E67A /* UIKit.framework */,
+				04F21C731C09E85300A0E67A /* libPods.a */,
+				04F21C711C09E82C00A0E67A /* Foundation.framework */,
 				C7A4407D1BC3E479009705B6 /* Bolts.framework */,
 				C7A4407E1BC3E479009705B6 /* Parse.framework */,
 				C7A4407B1BC3E45E009705B6 /* libsqlite3.dylib */,
@@ -836,6 +877,7 @@
 			files = (
 				C7C0235A1BAADC1D00873616 /* LRDQHomePage.storyboard in Resources */,
 				C795A77D1C055F8B004E7ED7 /* Images.xcassets in Resources */,
+				04F21C701C09E6E700A0E67A /* SMS_SDKLocalizable.strings in Resources */,
 				C793165E1BA90E9E0078D9B5 /* LaunchScreen.xib in Resources */,
 				C7E898731BAEE1F9006D26E9 /* LRDQMeStoryBoard.storyboard in Resources */,
 				C76A11DB1BE0C231007878BF /* LICENSE in Resources */,
@@ -1028,7 +1070,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1065,7 +1107,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1077,18 +1119,23 @@
 			baseConfigurationReference = 7CBADB1DE8C747E580A7BD9B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Neusoft RuiDao (ASW4CSW355)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Neusoft RuiDao (ASW4CSW355)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LRDQSender/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "457eaa40-4937-4f8c-bf43-f5d696b1297b";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1097,18 +1144,23 @@
 			baseConfigurationReference = 28B97B38067871CED098BCB4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Neusoft RuiDao (ASW4CSW355)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Neusoft RuiDao (ASW4CSW355)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LRDQSender/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "457eaa40-4937-4f8c-bf43-f5d696b1297b";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

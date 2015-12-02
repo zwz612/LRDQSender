@@ -117,7 +117,7 @@
     }
     }
     
-    _price.text = msgFrameModel.msgModel.price;
+    _price.text = [NSString stringWithFormat:@"赏金:%@元",msgFrameModel.msgModel.price];
     _price.textColor = [UIColor colorWithRed:240.f/255.f green:201.f/255.f blue:56.f/255.f alpha:1.f];//1127
     
 }

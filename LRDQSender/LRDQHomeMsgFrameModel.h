@@ -11,7 +11,7 @@
 
 #import "LRDQHomeMsgModel.h"
 #import "NSString+MoreExtentions.h"
-#define kMargin 20.f
+#define kMargin 10.f
 #define textWidthRatio 200.f/375.f
 #define addressFont [UIFont systemFontOfSize:18.f]
 #define telFont [UIFont systemFontOfSize:18.f]

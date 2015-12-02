@@ -43,7 +43,7 @@
         
         UITextField * price = [[UITextField alloc]init];
         _price = price;
-        price.placeholder = @"请输入赏金";
+        price.placeholder = @"请输入赏金,单位:元";
         price.backgroundColor = [UIColor whiteColor];
         [self addSubview:price];//1127＊＊＊＊＊＊＊
         

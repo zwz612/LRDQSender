@@ -20,6 +20,8 @@
 #import "NSString+MoreExtentions.h"
 #import "CCLocationManager.h"
 
+#import "MBProgressHUD+MoreExtension.h"
+
 #define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
 #define IS_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8)
 
@@ -69,9 +71,6 @@
 
 -(void)loadNewData{
     [self.tableView.header beginRefreshing];
-    
-
-    
     if ([PFUser currentUser]) {
         PFQuery * query=[PFQuery queryWithClassName:@"LRDQLists"];
         [query findObjectsInBackgroundWithBlock:^(NSArray * objects,NSError * error){
@@ -103,7 +102,6 @@
         }];
     }
 }
-
 - (IBAction)write:(UIButton *)sender {
     LRDQSenderMngView* senderMngView=[LRDQSenderMngView senderMngView];
     [senderMngView showInView:self.view.window];
@@ -165,6 +163,10 @@
 }
 -(void)senderMngView:(LRDQSenderMngView *)senderMngView senderMngtoHome:(NSString *)addressMng :(NSString *)telMng :(NSString *)descMng :(NSString *)price{
     
+    MBProgressHUD * hud =[MBProgressHUD showHUDAddedTo:self.view.window LabelText:@"正在发送" animated:YES];
+    hud.animationType = MBProgressHUDAnimationZoomIn;
+
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         
@@ -190,7 +192,7 @@
                                           @"latitude":latitude,
                                           @"longitude":longitude
                                           };
-                    //senderMngView.msgModel.isload = YES;//1109
+                    
                     LRDQHomeMsgModel * msgModel=[LRDQHomeMsgModel LRDQHomeMsgModelWithDict:dict];
                     PFObject * object = [PFObject objectWithClassName:@"LRDQLists"];
                     [object setObject:msgModel.tel forKey:@"tel"];
@@ -211,6 +213,7 @@
                             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                             [errorAlertView show];
                         }else{
+                            hud.hidden = YES;
                             UIAlertView *successAlertView=[[UIAlertView alloc]initWithTitle:@"提示" message:@"上传成功了" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                             [successAlertView show];
                             if (self.lists!=nil) {
@@ -269,6 +272,7 @@
                     [wallObject fetch];
                 });
             }
+                [self loadNewData];
             }
         }else{
             NSString * errorString = [[error userInfo ]objectForKey:@"error"];

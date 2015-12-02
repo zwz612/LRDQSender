@@ -86,7 +86,7 @@
     
 }
 - (IBAction)logon:(UIButton *)sender {
-    MBProgressHUD*hud=[MBProgressHUD showHUDAddedTo:self.view LabelText:@"拼命加载中。。。" animated:YES];
+    MBProgressHUD*hud=[MBProgressHUD showHUDAddedTo:self.view LabelText:@"正在登录" animated:YES];
     hud.animationType=MBProgressHUDAnimationZoomIn;
 
         
